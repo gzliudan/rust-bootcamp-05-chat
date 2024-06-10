@@ -5,12 +5,21 @@ use std::{env, fs::File};
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AppConfig {
     pub server: ServerConfig,
+    pub auth: AuthConfig,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct AuthConfig {
+    pub sk: String,
+    pub pk: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct ServerConfig {
     pub host: String,
     pub port: u16,
+    pub db_url: String,
+    pub test_db_url: String,
 }
 
 impl AppConfig {

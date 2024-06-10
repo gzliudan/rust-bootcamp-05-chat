@@ -1,3 +1,14 @@
 server:
   host: 0.0.0.0
   port: 6688
+  db_url: postgres://liudan:daniel@localhost:5432/chat_db
+  test_db_url: postgres://postgres:daniel@localhost:5432
+auth:
+  sk: |
+    -----BEGIN PRIVATE KEY-----
+    MC4CAQAwBQYDK2VwBCIEIIMiH3Kt+EvsCaX5f80huH1O4iHOLTwO3/f9Bd5UQ+DC
+    -----END PRIVATE KEY-----
+  pk: |
+    -----BEGIN PUBLIC KEY-----
+    MCowBQYDK2VwAyEAY0G7IskAkj+ZFbMWH1qr9P0JQ4ROD6czJHmSQWPrw70=
+    -----END PUBLIC KEY-----
