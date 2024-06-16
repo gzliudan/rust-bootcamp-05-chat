@@ -3,6 +3,7 @@ server:
   port: 6688
   db_url: postgres://liudan:daniel@localhost:5432/chat_db
   test_db_url: postgres://postgres:daniel@localhost:5432
+  base_dir: /tmp/chat_server
 auth:
   sk: |
     -----BEGIN PRIVATE KEY-----

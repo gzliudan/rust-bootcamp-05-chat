@@ -1,6 +1,6 @@
 use anyhow::{bail, Result};
 use serde::{Deserialize, Serialize};
-use std::{env, fs::File};
+use std::{env, fs::File, path::PathBuf};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AppConfig {
@@ -20,6 +20,7 @@ pub struct ServerConfig {
     pub port: u16,
     pub db_url: String,
     pub test_db_url: String,
+    pub base_dir: PathBuf,
 }
 
 impl AppConfig {
