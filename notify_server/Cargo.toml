@@ -11,6 +11,7 @@ authors = ["Daniel Liu <139250065@qq.com>"]
 anyhow = { workspace = true }
 axum = { workspace = true }
 axum-extra = { version = "0.9.3", features = ["typed-header"] }
+chat_core = { workspace = true }
 futures = "0.3.30"
 serde = { workspace = true }
 serde_yaml = { workspace = true }
