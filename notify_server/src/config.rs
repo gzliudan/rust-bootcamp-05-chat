@@ -1,35 +1,31 @@
 use anyhow::{bail, Result};
 use serde::{Deserialize, Serialize};
-use std::{env, fs::File, path::PathBuf};
+use std::{env, fs::File};
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct AppConfig {
     pub server: ServerConfig,
     pub auth: AuthConfig,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct AuthConfig {
-    pub sk: String,
     pub pk: String,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ServerConfig {
-    pub host: String,
     pub port: u16,
     pub db_url: String,
-    pub test_db_url: String,
-    pub base_dir: PathBuf,
 }
 
 impl AppConfig {
     pub fn load() -> Result<Self> {
-        // read from  ./chat.yaml, or /etc/config/chat.yaml, or env CHAT_CONFIG
+        // read from  ./notify.yml, or /etc/config/notify.yml, or from env CHAT_CONFIG
         let ret = match (
-            File::open("chat.yaml"),
-            File::open("/etc/config/chat.yaml"),
-            env::var("CHAT_CONFIG"),
+            File::open("notify.yml"),
+            File::open("/etc/config/notify.yml"),
+            env::var("NOTIFY_CONFIG"),
         ) {
             (Ok(reader), _, _) => serde_yaml::from_reader(reader),
             (_, Ok(reader), _) => serde_yaml::from_reader(reader),
