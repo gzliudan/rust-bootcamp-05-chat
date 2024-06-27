@@ -21,10 +21,10 @@ pub struct ServerConfig {
 
 impl AppConfig {
     pub fn load() -> Result<Self> {
-        // read from  ./notify.yml, or /etc/config/notify.yml, or from env CHAT_CONFIG
+        // read from  ./notify.yaml, or /etc/config/notify.yaml, or from env CHAT_CONFIG
         let ret = match (
-            File::open("notify.yml"),
-            File::open("/etc/config/notify.yml"),
+            File::open("notify.yaml"),
+            File::open("/etc/config/notify.yaml"),
             env::var("NOTIFY_CONFIG"),
         ) {
             (Ok(reader), _, _) => serde_yaml::from_reader(reader),
